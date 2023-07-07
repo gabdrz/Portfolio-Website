@@ -1,17 +1,32 @@
 {
   "name": "portfolio-website",
   "version": "0.1.0",
+  "homepage": "https://gabdrz.github.io/Portfolio-Website",
   "private": true,
   "dependencies": {
+    "@react-spring/parallax": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "framer-motion": "^10.12.17",
+    "gsap": "^3.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.1",
+    "react-resize-detector": "^9.1.0",
+    "react-router-dom": "^6.14.0",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.9",
+    "react-scroll-parallax": "^3.4.2",
+    "react-spring": "^9.7.2",
+    "react-typing-effect": "^2.0.5",
+    "scrollmagic": "^2.0.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }

@@ -1,0 +1,104 @@
+#contact {
+    position: relative;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-middle {
+    position: absolute;
+    width: 400px;  /* Change this as needed */
+    height: 400px;  /* Change this as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: row;  /* Changed to row for side-by-side icons */
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 23%; /* Center it vertically */
+    left: 50%; /* Center it horizontally */
+    transform: translate(-50%, -10%); /* Adjust both x and y axes */
+    margin-bottom: 2em;
+    z-index: 3;
+}
+
+.contact-links a {
+    color: #fff;
+    text-decoration: none;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0.5em;  /* Add space between links */
+}
+
+.contact-links a:visited {
+    color: #fff;
+}
+
+.contact-links a img {
+    width: 60px;  /* Adjust icon size */
+    height: 60px;  /* Adjust icon size */
+}
+
+.image-container {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.image-body {
+    position: absolute;
+    top: 140px;  /* Adjust as per your needs */
+    left: 40px;  /* Adjust as per your needs */
+}
+
+.image-helmet {
+    position: absolute;
+    top: 200px;  /* Adjust as per your needs */
+    left: 240px;  /* Adjust as per your needs */
+}
+
+@media screen and (max-width: 734px) and (min-width: 0px) {
+    .image-middle {
+        position: absolute;
+        width: 300px;  /* Change this as needed */
+        height: 300px;  /* Change this as needed */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    .contact-links a img {
+        width: 40px;  /* Adjust icon size */
+        height: 40px;  /* Adjust icon size */
+    }
+
+    .image-body {
+        position: absolute;
+        top: 180px;  /* Adjust as per your needs */
+        left: 120px;  /* Adjust as per your needs */
+        height: 200px;
+    }
+    
+    .image-helmet {
+        position: absolute;
+        top: 200px;  /* Adjust as per your needs */
+        left: 240px;  /* Adjust as per your needs */
+        height: 50px;
+    }
+    
+}

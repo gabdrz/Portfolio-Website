@@ -1,0 +1,101 @@
+.page {
+  position: relative;
+  z-index: auto;
+}
+
+.text-section {
+  width: 55%;
+  margin-left: 5%;
+}
+
+.text-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 7em;
+  }
+  
+.text-section h2 {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 200;
+  font-size: 3em;
+  margin-top: -70px;
+}
+  
+.image-section {
+  position: fixed;
+  bottom: 0;
+  left: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; 
+  height: 100vh;
+  z-index: 1;
+}
+  
+.image-section img {
+  position: relative;
+  width: 100%;
+  margin-right: 8vw;
+  z-index: 2;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.cursor::after {
+  content: '_';
+  opacity: 1;
+  animation: blink 1s infinite;
+}
+
+@media screen and (max-width: 734px) and (min-width: 0px){
+  .text-section {
+    width: 60%;
+    margin-top: -200px;
+  }
+
+  .text-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 4em;
+  }
+  
+  .text-section h2 {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 200;
+    font-size: 2em;
+    margin-top: -20px;
+  }
+
+  .image-section img {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    height: 380px;
+    width: 200px;
+  }
+
+  .image-section {
+    position: fixed;
+    bottom: 0;
+    left: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    height: 100vh;
+    z-index: 1;
+  }
+} 

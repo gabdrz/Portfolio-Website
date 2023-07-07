@@ -1,0 +1,144 @@
+#projects {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.project-list {
+  flex-direction: column;
+  width: 500px;
+  margin-left: 5%;
+  z-index: 3;
+  position: absolute;
+  top: 10%;
+}
+
+.project {
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 3em;
+  position: relative;
+}
+
+.project-line {
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  position: absolute;
+  left: 0; 
+  top: 0;
+}
+
+.project-content {
+  z-index: 4;
+  margin-left: 2em;
+}
+
+.project-img-container {
+  position: absolute;
+  right: 0%;
+  top: 0px;
+  z-index: 2;
+  height: 200vh; /* 100vh for the current page and 100vh for the next page */
+  width: 1700px;
+  bottom: 0;
+}
+
+.project-img {
+  height: 800px;
+  width: 900px;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  right: 50px;
+  transform: scale(1);
+}
+
+.projects-container{
+  position: absolute;
+  top: -200px;
+  right: -500px;
+  width: 1220px;
+  height: 1340px;
+  text-align: center;
+  z-index: 4;
+  outline: #fff;
+}
+
+.projects-svg {
+  position: absolute;
+  top: 10px;
+  display: inline-block;
+  margin-left: -750px;
+  height: 780px;
+  width: 1200px;
+  z-index: 4;
+}
+
+.barf {
+  position: absolute;
+  top: 490px;
+  left: -360px;
+}
+ 
+.outline {
+  position: absolute;
+  top: 1212px;
+  left: 1601px;
+  scale: 2;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('../assets/parallax.png');
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+@media screen and (max-width: 734px) and (min-width: 0px) {
+  .project-list {
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    z-index: 3;
+    position: absolute;
+    top: 0%;
+    font-size: 0.8em;
+  }
+
+  .project-img-container {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    z-index: 2;
+    height: 200vh; /* 100vh for the current page and 100vh for the next page */
+    width: 1700px;
+    bottom: 0;
+  }
+  
+  .project-img {
+    height: 360px;
+    width: 900px;
+    object-fit: contain;
+    position: absolute;
+    top: 380px;
+    right: -250px;
+    transform: scale(1);
+  }
+   
+  .outline {
+    position: absolute;
+    top: 590px;
+    right: -15px;
+    left: auto;
+    scale: 1.1;
+  }
+  
+}

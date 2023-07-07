@@ -1,0 +1,120 @@
+.hero {
+    height: 80%;
+    margin-left: -920px;
+}
+
+.bubbles-and-text-container {
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.bubbles-container {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 70%;
+    height: 50%;
+}
+
+.bubble-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.bubble-wrapper {
+    position: absolute; 
+    z-index: 4;
+}
+ 
+.bubbles-container img {
+    width: 100px;
+    height: auto;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.text-container {
+    position: absolute; 
+    bottom: 350px; 
+    max-width: 40%;
+    text-align: center;
+    left: 60%;
+    transform: translateX(-50%);
+}
+
+.line-container {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 1220px;
+    height: 1940px;
+    text-align: center;
+    z-index: 4;
+    overflow: visible;
+}
+
+svg {
+    position: absolute;
+    top: 40px;
+    display: inline-block;
+    margin-left: -1520px;
+    height: 1440px;
+    width: 1240px;
+    z-index: 4;
+}
+
+@media screen and (max-width: 734px) and (min-width: 0px){
+    svg {
+        position: sticky;
+        top: 40px;
+        display: inline-block;
+        margin-left: -1760px;
+        height: 1200px; 
+        width: 840px;
+        z-index: 4;
+    }
+    .line-container {
+        position: absolute;
+        top: -200px;
+        left: 0;
+        width: 1220px;
+        height: 1640px;
+        text-align: center;
+        z-index: 4;
+    }
+
+    .bubbles-container img {
+        width: 60px;
+        height: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .bubbles-container {
+        position: absolute;
+        top: -20%;
+        right: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .text-container {
+        position: absolute; 
+        width: 200px;
+        max-width: 100%;
+        text-align: center;
+        top: 310px;
+        left: 70%;
+        transform: translateX(-50%);
+        font-size: 0.8em;
+    }
+}
