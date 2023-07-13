@@ -5,6 +5,7 @@ import About from "./components/about/About";
 import Skills from "./components/skills/Skills";
 import Projects from "./components/projects/Projects";
 import Contact from "./components/contact/Contact";
+import resumePDF from "./assets/Zafra_Resume.pdf";
 import logo from "./assets/dog_logo.png";
 import "./App.css";
 
@@ -67,6 +68,10 @@ function App() {
           </li>
         </ul>
       </nav>
+      <a href={resumePDF} target="_blank" rel="noopener noreferrer">
+        <div className="resume">My résumé</div>
+      </a>
+
       <Home setActiveSection={setActiveSection} />
       <About setActiveSection={setActiveSection} />
       <Skills setActiveSection={setActiveSection} />

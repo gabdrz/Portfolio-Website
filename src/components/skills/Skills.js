@@ -15,7 +15,7 @@ const Skills = ({ setActiveSection }) => {
 
   const [activeBubble, setActiveBubble] = useState(0);
   const [hasBlown, setHasBlown] = useState(false);
-  const [bubblePositions, setBubblePositions] = useState([]);
+  const [bubblePositions, setBubblePositions] = useState(new Array(bubbleData.length).fill(0));
   const [initialAnimationCompleted, setInitialAnimationCompleted] =
     useState(false);
 
@@ -45,7 +45,11 @@ const Skills = ({ setActiveSection }) => {
             0,
             containerHeight
           );
-          setBubblePositions((prevPositions) => [...prevPositions, y]);
+          setBubblePositions((prevPositions) => {
+            const newPositions = [...prevPositions];
+            newPositions[index] = y;
+            return newPositions;
+          });
           return {
             x: [-containerWidth * 0.2, x],
             y: [containerHeight / 2 + 100, y],

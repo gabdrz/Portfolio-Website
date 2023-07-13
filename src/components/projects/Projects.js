@@ -50,7 +50,7 @@ const Projects = ({ setActiveSection }) => {
     {
       title: "Nurse Station Dashboard App",
       description:
-        "An on-going iPad app for Cedar Sinai built using Flutter, that reads and writes data on a Google Sheet; more features will be listed as developent progresses.",
+        "An on-going iPad app built using Flutter, that reads and writes data on a Google Sheet; more features will be listed as developent progresses.",
     },
     {
       title: "Automated Freedom Board",

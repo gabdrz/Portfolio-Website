@@ -9,7 +9,7 @@
   height: 60px; /* Set your preferred navbar height here */
   z-index: 10;
 }
-
+ 
 .nav ul {
   display: flex;
   align-items: center;
@@ -40,6 +40,31 @@
   overflow: hidden;
 }
 
+.resume {
+  position: fixed;
+  height: 60px;
+  width: 150px;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: black;
+  outline-color: white;
+  color: white;
+  text-align: center;
+  font-size: large;
+  outline: auto;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.resume:hover {
+  background-color: white; /* adjust this to change button hover color */
+  color: black;
+}
+
 @media screen and (max-width: 734px) and (min-width: 0px) {
   
   .nav ul {
@@ -62,5 +87,25 @@
   .logo {
     height: 40px;  
     margin-left: -20px;
+  }
+
+  .resume {
+    position: fixed;
+    height: 40px;
+    width: 100px;
+    right: 20px;
+    top: 80px;
+    z-index: 10;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: black;
+    outline-color: white;
+    color: white;
+    text-align: center;
+    font-size: medium;
+    outline: auto;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
   }
 }
