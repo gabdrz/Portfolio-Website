@@ -130,9 +130,7 @@ const Contact = ({ setActiveSection }) => {
             initial={{ y: 0 }}
           />
         ))}
-      </div>
-
-      <div className="contact-links">
+        <div className="contact-links">
         {iconData.map((icon, index) => (
           <a
             key={index}
@@ -157,6 +155,7 @@ const Contact = ({ setActiveSection }) => {
             />
           </a>
         ))}
+      </div>
       </div>
     </div>
   );

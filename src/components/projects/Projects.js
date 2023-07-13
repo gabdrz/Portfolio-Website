@@ -105,8 +105,8 @@ const Projects = ({ setActiveSection }) => {
           <g style={{ clipPath: "url(#clip)" }}>
             <animated.rect
               style={{ transform: interpHeader }}
-              width="300%"
-              height="100%"
+              width="100%"
+              height="300%"
               fill="url(#imgPattern)"
             />
           </g>

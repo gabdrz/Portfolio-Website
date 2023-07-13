@@ -1,11 +1,7 @@
 import "../../styles/Skills.css";
 import "../../styles/general.css";
 import React, { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  useAnimation,
-  useScroll,
-} from "framer-motion";
+import { motion, useAnimation, useScroll } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { random, clamp } from "lodash";
 import { bubbleData } from "./BubbleData";
@@ -18,10 +14,10 @@ const Skills = ({ setActiveSection }) => {
   const { scrollYProgress } = useScroll();
 
   const [activeBubble, setActiveBubble] = useState(0);
-
   const [hasBlown, setHasBlown] = useState(false);
-
   const [bubblePositions, setBubblePositions] = useState([]);
+  const [initialAnimationCompleted, setInitialAnimationCompleted] =
+    useState(false);
 
   const getRandomNonZero = (min, max) => {
     let num;
@@ -34,51 +30,40 @@ const Skills = ({ setActiveSection }) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = scrollYProgress.get();
-      if (currentScrollY >= 0.48 && !hasBlown) {
+      if (currentScrollY >= 0.46 && !hasBlown) {
         setHasBlown(true);
         bubbleControls.start((index) => {
           const containerWidth = bubbleContainerRef.current.offsetWidth;
           const containerHeight = bubbleContainerRef.current.offsetHeight;
-          const x = clamp((index % 4) * (containerWidth / 4), 0, containerWidth);
-          const y = clamp(Math.floor(index / 4) * (containerHeight / 4), 0, containerHeight);
+          const x = clamp(
+            (index % 4) * (containerWidth / 4),
+            0,
+            containerWidth
+          );
+          const y = clamp(
+            Math.floor(index / 4) * (containerHeight / 4),
+            0,
+            containerHeight
+          );
           setBubblePositions((prevPositions) => [...prevPositions, y]);
           return {
-            x: [ -containerWidth * 0.2, x],
-            y: [(containerHeight / 2) + 100, y],
+            x: [-containerWidth * 0.2, x],
+            y: [containerHeight / 2 + 100, y],
             opacity: 1,
-            transition: { 
-              x: { duration: 2 }, 
-              y: { duration: 2, end: y }, 
-              opacity: { 
+            transition: {
+              x: { duration: 2 },
+              y: { duration: 2, end: y },
+              opacity: {
                 duration: 2,
                 onComplete: () => {
-                  bubbleControls.start((i) => {
-                    let yValue = getRandomNonZero(-15, 15);
-                    let durationValue = getRandomNonZero(2, 3);
-
-                    let initialY = bubblePositions[i];
-                    return {
-                      y: [
-                        `${initialY}px`,
-                        `${initialY + yValue}px`,
-                        `${initialY - yValue}px`,
-                      ],
-                      transition: {
-                        y: {
-                          repeat: Infinity,
-                          duration: durationValue,
-                          ease: "easeInOut",
-                          repeatType: "reverse",
-                        },
-                      },
-                    };
-                  });
+                  setInitialAnimationCompleted(true);
                 },
               },
             },
           };
         });
-      } else if (currentScrollY <= 0.45 && hasBlown) {
+      } else if (currentScrollY <= 0.44 && hasBlown) {
+        setInitialAnimationCompleted(false);
         setHasBlown(false);
         resetText();
         bubbleControls.start({ opacity: 0, transition: { duration: 1 } });
@@ -91,22 +76,31 @@ const Skills = ({ setActiveSection }) => {
       unsubscribe();
     };
   }, [scrollYProgress, bubbleControls, hasBlown, bubblePositions]);
-  
-  // const pathVariants = {
-  //   hidden: {
-  //     opacity: 0,
-  //     pathLength: 0,
-  //   },
-  //   visible: {
-  //     opacity: 1,
-  //     pathLength: 1,
-  //     transition: {
-  //       duration: 2,
-  //       ease: "easeInOut",
-  //     },
-  //   },
-  // };
 
+  useEffect(() => {
+    if (initialAnimationCompleted) {
+      bubbleControls.start((i) => {
+        let yValue = getRandomNonZero(-15, 15);
+        let durationValue = getRandomNonZero(2, 3);
+
+        let initialY = bubblePositions[i];
+        let newYPlus = initialY + yValue;
+        let newYMinus = initialY - yValue;
+
+        return {
+          y: [initialY, newYPlus, newYMinus],
+          transition: {
+            y: {
+              repeat: Infinity,
+              duration: durationValue,
+              ease: "easeInOut",
+              repeatType: "reverse",
+            },
+          },
+        };
+      });
+    }
+  }, [initialAnimationCompleted, bubbleControls, bubblePositions]);
   const homepage_logo_main_content = useRef(null);
 
   const [selectedBubble, setSelectedBubble] = useState(null);

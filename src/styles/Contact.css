@@ -25,7 +25,7 @@
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    bottom: 23%; /* Center it vertically */
+    top: 450px; /* Center it vertically */
     left: 50%; /* Center it horizontally */
     transform: translate(-50%, -10%); /* Adjust both x and y axes */
     margin-bottom: 2em;
@@ -70,8 +70,20 @@
     top: 200px;  /* Adjust as per your needs */
     left: 240px;  /* Adjust as per your needs */
 }
-
+ 
 @media screen and (max-width: 734px) and (min-width: 0px) {
+    .contact-links {
+        display: flex;
+        flex-direction: row;  /* Changed to row for side-by-side icons */
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        top: 410px; /* Center it vertically */
+        left: 50%; /* Center it horizontally */
+        transform: translate(-50%, -10%); /* Adjust both x and y axes */
+        margin-bottom: 2em;
+        z-index: 3;
+    }
     .image-middle {
         position: absolute;
         width: 300px;  /* Change this as needed */
